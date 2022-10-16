@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import PropTypes from 'prop-types';
 
 class NormalButton extends React.Component {
     constructor(props) {
@@ -30,15 +29,12 @@ class Display extends React.Component {
         this.state = {
             value: '0',
             expression: '',
-            switch: false,
-            expressionTemp: '',
             afterSwitch: false,
         }
     }
     clickHandler(number) {
-      if(number === '.' && this.state.value.includes('.')){
-        return;
-      }
+      if(number === '.' && this.state.value.includes('.')) return;
+
       if (this.state.afterSwitch) {
         this.setState({
           value: number,
@@ -106,3 +102,4 @@ root.render(
     <Display />
   </React.StrictMode>
 );
+
