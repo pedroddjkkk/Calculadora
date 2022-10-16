@@ -30,9 +30,17 @@ class Display extends React.Component {
             value: '0',
             expression: '',
             afterSwitch: false,
+            previosValue: '',
+            previosExpression: '',
+            switch: false,
         }
+        this.clickHandler = this.clickHandler.bind(this);
+        this.mathHandler = this.mathHandler.bind(this);
     }
     clickHandler(number) {
+      this.setState({
+        previosExpression: number,
+      });
       if(number === '.' && this.state.value.includes('.')) return;
 
       if (this.state.afterSwitch) {
@@ -55,14 +63,25 @@ class Display extends React.Component {
       });
     }
     mathHandler(expression) {
+      this.setState({
+        previosExpression: expression
+      });
         if (expression === '=') {
           console.log(this.state.expression);
           this.setState({
             afterSwitch: true,
             value: eval(this.state.expression),
+            previosValue: eval(this.state.expression).toString(),
             expression: '',
           })
-        }else{
+        }else if(this.state.previosExpression === '=') {
+          this.setState({
+            value: 0,
+            expression: this.state.previosValue + expression,
+            afterSwitch: false,
+          })
+        }
+        else{
           this.setState({
             value: 0,
             expression: this.state.expression + expression,
