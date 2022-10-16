@@ -45,6 +45,7 @@ button.grid-item{
 button.grid-item:hover{
     background-color: rgb(218, 216, 216);
     transition: 0.2s;
+    cursor: pointer;
 }
 
 #root{
