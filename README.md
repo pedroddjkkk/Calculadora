@@ -32,7 +32,7 @@ npm start
 
 ## Screenshots
 
-Adicione screenshots do seu projeto aqui
+![Calculadora](https://raw.githubusercontent.com/pedroddjkkk/CalculadoraReact/main/showroom.png)
 
 ## Licença
 
